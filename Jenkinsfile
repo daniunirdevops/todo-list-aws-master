@@ -11,7 +11,7 @@ pipeline {
             steps {
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: '*/develop']],
+                    // branches: [[name: '*/develop']],
                     userRemoteConfigs: [[
                         url: 'https://github.com/daniunirdevops/todo-list-aws.git'
                     ]]
