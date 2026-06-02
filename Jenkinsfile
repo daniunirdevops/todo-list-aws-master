@@ -20,6 +20,14 @@ pipeline {
             }
         }
 
+        stage('Show Branch') {
+            steps {
+                echo "BRANCH_NAME=${env.BRANCH_NAME}"
+                echo "GIT_BRANCH=${env.GIT_BRANCH}"
+                sh 'git branch --show-current'
+            }
+        }
+
         stage('Static Test') {
             // test estático, bandit & flake8
             when {
