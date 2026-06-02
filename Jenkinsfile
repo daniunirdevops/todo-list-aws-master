@@ -24,6 +24,7 @@ pipeline {
             steps {
                 echo "BRANCH_NAME=${env.BRANCH_NAME}"
                 echo "GIT_BRANCH=${env.GIT_BRANCH}"
+                echo "GIT_BRANCH=${params.BRANCH_NAME}"
                 sh 'git branch --show-current'
             }
         }
@@ -39,7 +40,7 @@ pipeline {
                 unstash 'code'     
                 sh '''
                     export PYTHONPATH=$WORKSPACE
-                    python3 -m bandit \
+                    bandit \
                             --exit-zero \
                             -r src/*.py \
                             -f custom \
