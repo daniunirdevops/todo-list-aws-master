@@ -50,7 +50,7 @@ pipeline {
                 sh 'cat bandit.out'
                 sh '''
                     export PYTHONPATH=$WORKSPACE
-                    python3 -m flake8 --format=pylint --exit-zero --output-file=flake8.out src
+                    flake8 --format=pylint --exit-zero --output-file=flake8.out src
 
                 '''
                 sh 'cat flake8.out'
