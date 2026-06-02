@@ -41,7 +41,6 @@ pipeline {
                 sh '''
                     export PYTHONPATH=$WORKSPACE
                     bandit \
-                            --exit-zero \
                             -r src/*.py \
                             -f custom \
                             -o bandit.out \
